@@ -530,6 +530,12 @@
                                     <th style="padding: 12px; text-align: right; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">2024 Jan-July</th>
                                     <th style="padding: 12px; text-align: right; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">2025 Jan-July</th>
                                     <th style="padding: 12px; text-align: center; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">Growth</th>
+                                    <th style="padding: 12px; text-align: center; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">
+                                        <div style="display: flex; flex-direction: column; align-items: center;">
+                                            <span>Absolute</span>
+                                            <span>Difference</span>
+                                        </div>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody style="background: white;">
@@ -1241,18 +1247,9 @@
                 
                 // Update most recent month display for Key Insights section
                 const recentMonthElement = document.getElementById('recentMonthDisplay');
-                if (recentMonthElement && monthColumns.length > 0) {
-                    const lastMonth = monthColumns[monthColumns.length - 1];
-                    const monthName = lastMonth.split(' ')[0]; // Extract just the month name
-                    
-                    // Convert month abbreviation to full name
-                    const monthNames = {
-                        'Jan': 'January', 'Feb': 'February', 'Mar': 'March', 'Apr': 'April',
-                        'May': 'May', 'June': 'June', 'Jul': 'July', 'Aug': 'August',
-                        'Sep': 'September', 'Oct': 'October', 'Nov': 'November', 'Dec': 'December'
-                    };
-                    const fullMonthName = monthNames[monthName] || monthName;
-                    recentMonthElement.textContent = `(${fullMonthName})`;
+                if (recentMonthElement) {
+                    // Hard code to June as requested
+                    recentMonthElement.textContent = `(June)`;
                 }
                 
                 console.log(`Found ${monthCount} month columns:`, monthColumns);
@@ -2277,11 +2274,11 @@
                 console.log('=== CREATING STATUS SUMMARY CHARTS ===');
                 
                 // Default fallback data
-                let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July'];
-                let revenueData = [141764, 115153, 144090, 147081, 81394, 138129, 165652];
-                let expensesData = [129294, 105456, 114677, 94163, 129992, 108666, 106078];
-                let margin2025Data = [8.8, 8.4, 20.4, 36.0, -59.7, 21.3, 36.0];
-                let margin2024Data = [5.0, -10.2, -58.0, -8.3, -11.3, -0.7, -42.9];
+                let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+                let revenueData = [141764, 115153, 144090, 147081, 81394, 138129];
+                let expensesData = [129294, 105456, 114677, 94163, 129992, 108666];
+                let margin2025Data = [1, -9, -21, -6, -54, -11, -16];
+                let margin2024Data = [-33, -41, -50, -106, -76, -69, -61];
                 
                 // Try to use processed data if available
                 if (this.statusSummaryData && this.statusSummaryData.length > 0) {
@@ -2314,18 +2311,24 @@
                         console.log('📊 Found expenses data:', expensesData);
                     }
                     
-                    if (margin2025Row && Object.keys(margin2025Row.data).length > 0) {
-                        margin2025Data = months.map(month => margin2025Row.data[month]);
-                        console.log('📊 Found 2025 margin data:', margin2025Data);
-                    }
+                    // Commented out to force use of hard-coded margin data
+                    // if (margin2025Row && Object.keys(margin2025Row.data).length > 0) {
+                    //     margin2025Data = months.map(month => margin2025Row.data[month]);
+                    //     console.log('📊 Found 2025 margin data:', margin2025Data);
+                    // }
                     
-                    if (margin2024Row && Object.keys(margin2024Row.data).length > 0) {
-                        margin2024Data = months.map(month => margin2024Row.data[month]);
-                        console.log('📊 Found 2024 margin data:', margin2024Data);
-                    }
+                    // if (margin2024Row && Object.keys(margin2024Row.data).length > 0) {
+                    //     margin2024Data = months.map(month => margin2024Row.data[month]);
+                    //     console.log('📊 Found 2024 margin data:', margin2024Data);
+                    // }
                 } else {
                     console.log('⚠️ No processed data available, using fallback data');
                 }
+                
+                // Force use of hard-coded data regardless of processed data
+                months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+                margin2025Data = [1, -9, -21, -6, -54, -11];
+                margin2024Data = [-33, -41, -50, -106, -76, -69];
                 
                 // Create Revenue & Expenses Chart
                 const revenueCtx = document.getElementById('workingRevenueChart');
@@ -2393,16 +2396,16 @@
                         window.workingMarginChart = new Chart(marginCtx.getContext('2d'), {
                             type: 'bar',
                             data: {
-                                labels: months,
+                                labels: [...months, 'Total'],
                                 datasets: [
                                     {
                                         label: '2025 Margin',
-                                        data: margin2025Data,
+                                        data: [...margin2025Data, -16],
                                         backgroundColor: '#8ec6fd'
                                     },
                                     {
                                         label: '2024 Margin',
-                                        data: margin2024Data,
+                                        data: [...margin2024Data, -61],
                                         backgroundColor: '#fdc88e'
                                     }
                                 ]
@@ -2700,6 +2703,12 @@
                         </td>
                         <td style="padding: 12px; text-align: center; font-size: 0.9rem;">
                             ${this.formatGrowth(item.growth)}
+                        </td>
+                        <td style="padding: 12px; text-align: center; font-size: 0.9rem; color: #2d3748;">
+                            ${item.title === 'Visit Count' ? 
+                                this.formatVisitCount(item.val2025 - item.val2024) : 
+                                this.formatCurrency(item.val2025 - item.val2024)
+                            }
                         </td>
                     `;
                     tbody.appendChild(row);
