@@ -2731,13 +2731,20 @@
             }
         };
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', async function() {
             console.log('Dashboard loaded at:', new Date().toISOString());
             window.dashboard.init();
             // Automatically load pre-loaded data
             window.dashboard.loadPreloadedData();
-            window.dashboard.loadStatusSummaryData();
-            window.dashboard.loadFinancialPerformanceData();
+            
+            // Load data sequentially to avoid conflicts
+            console.log('Loading Status Summary data...');
+            await window.dashboard.loadStatusSummaryData();
+            
+            console.log('Loading Financial Performance data...');
+            await window.dashboard.loadFinancialPerformanceData();
+            
+            console.log('All data loading completed');
         });
     </script>
 </body>
