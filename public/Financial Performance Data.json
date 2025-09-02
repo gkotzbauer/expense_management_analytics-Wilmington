@@ -170,6 +170,16 @@
     "Growth_Rate_Percentage": null
   },
   {
+    "Metric_ID": "VISIT_STATUS_JULY",
+    "Metric_Name": "July 2025 End of Month Visit Status",
+    "Category": "Remaining Year Cashflow Projections",
+    "Responsibility": "Forecast",
+    "Value_2024_Jan_June": null,
+    "Value_2025_Jan_June": 99.57785482318863,
+    "Growth_Rate_Decimal": null,
+    "Growth_Rate_Percentage": null
+  },
+  {
     "Metric_ID": "CASHFLOW_JULY_CASH_POSITION",
     "Metric_Name": "July 2025 End of Month Cash Position",
     "Category": "Remaining Year Cashflow Projections",
@@ -226,6 +236,16 @@
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
     "Value_2025_Jan_June": -16539.849413919423,
+    "Growth_Rate_Decimal": null,
+    "Growth_Rate_Percentage": null
+  },
+  {
+    "Metric_ID": "VISIT_STATUS_AUGUST",
+    "Metric_Name": "August 2025 End of Month Visit Status",
+    "Category": "Remaining Year Cashflow Projections",
+    "Responsibility": "Forecast",
+    "Value_2024_Jan_June": null,
+    "Value_2025_Jan_June": 120.51383490085547,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -290,6 +310,16 @@
     "Growth_Rate_Percentage": null
   },
   {
+    "Metric_ID": "VISIT_STATUS_SEPTEMBER",
+    "Metric_Name": "September 2025 End of Month Visit Status",
+    "Category": "Remaining Year Cashflow Projections",
+    "Responsibility": "Forecast",
+    "Value_2024_Jan_June": null,
+    "Value_2025_Jan_June": 142.15354540130105,
+    "Growth_Rate_Decimal": null,
+    "Growth_Rate_Percentage": null
+  },
+  {
     "Metric_ID": "CASHFLOW_SEPTEMBER_CASH_POSITION",
     "Metric_Name": "September 2025 End of Month Cash Position",
     "Category": "Remaining Year Cashflow Projections",
@@ -346,6 +376,16 @@
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
     "Value_2025_Jan_June": -18930.28020512822,
+    "Growth_Rate_Decimal": null,
+    "Growth_Rate_Percentage": null
+  },
+  {
+    "Metric_ID": "VISIT_STATUS_OCTOBER",
+    "Metric_Name": "October 2025 End of Month Visit Status",
+    "Category": "Remaining Year Cashflow Projections",
+    "Responsibility": "Forecast",
+    "Value_2024_Jan_June": null,
+    "Value_2025_Jan_June": 137.9311628646288,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -410,6 +450,16 @@
     "Growth_Rate_Percentage": null
   },
   {
+    "Metric_ID": "VISIT_STATUS_NOVEMBER",
+    "Metric_Name": "November 2025 End of Month Visit Status",
+    "Category": "Remaining Year Cashflow Projections",
+    "Responsibility": "Forecast",
+    "Value_2024_Jan_June": null,
+    "Value_2025_Jan_June": 146.02406272658405,
+    "Growth_Rate_Decimal": null,
+    "Growth_Rate_Percentage": null
+  },
+  {
     "Metric_ID": "CASHFLOW_NOVEMBER_CASH_POSITION",
     "Metric_Name": "November 2025 End of Month Cash Position",
     "Category": "Remaining Year Cashflow Projections",
@@ -466,6 +516,16 @@
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
     "Value_2025_Jan_June": -18205.907238095257,
+    "Growth_Rate_Decimal": null,
+    "Growth_Rate_Percentage": null
+  },
+  {
+    "Metric_ID": "VISIT_STATUS_DECEMBER",
+    "Metric_Name": "December 2025 End of Month Visit Status",
+    "Category": "Remaining Year Cashflow Projections",
+    "Responsibility": "Forecast",
+    "Value_2024_Jan_June": null,
+    "Value_2025_Jan_June": 132.65318469378843,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
