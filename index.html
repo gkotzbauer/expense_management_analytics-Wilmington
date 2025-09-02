@@ -2669,6 +2669,8 @@
             updateKeyMetrics: function(data) {
                 console.log('=== UPDATE KEY METRICS DEBUG ===');
                 console.log('Data received:', data);
+                console.log('Data length:', data.length);
+                console.log('All item titles:', data.map(item => item.title));
                 
                 const revenueItem = data.find(item => item.title === 'Total Revenue');
                 const expensesItem = data.find(item => item.title === 'Total Expenses');
