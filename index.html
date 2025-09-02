@@ -2421,6 +2421,7 @@
                 console.log('=== FINANCIAL PERFORMANCE DATA DEBUG ===');
                 console.log('Total rows in financialPerformanceData:', this.financialPerformanceData.length);
                 console.log('Sample rows:', this.financialPerformanceData.slice(0, 3));
+                console.log('Full financialPerformanceData:', this.financialPerformanceData);
                 
                 this.financialPerformanceData.forEach(row => {
                     console.log(`Processing row: Category="${row.Category}", Metric_Name="${row.Metric_Name}"`);
@@ -2436,13 +2437,15 @@
                             growth = Math.abs(growth);
                         }
                         
-                        expenseAnalysisData.push({
+                        const item = {
                             title: row.Metric_Name,
                             responsibility: row.Responsibility,
                             val2024: val2024,
                             val2025: val2025,
                             growth: growth
-                        });
+                        };
+                        console.log('Adding expense analysis item:', item);
+                        expenseAnalysisData.push(item);
                     } else if (row.Category === 'Remaining Year Cashflow Projections') {
                         console.log(`Found cashflow row: ${row.Metric_Name}`);
                         // Handle cashflow data - need to group by month
@@ -2562,10 +2565,19 @@
 
             // Render expense analysis table
             renderExpenseAnalysisTable: function(data) {
+                console.log('=== RENDERING EXPENSE ANALYSIS TABLE ===');
+                console.log('Data received:', data);
+                console.log('Data length:', data.length);
+                
                 const tbody = document.querySelector('#expenseAnalysisTable tbody');
+                if (!tbody) {
+                    console.error('Could not find #expenseAnalysisTable tbody element');
+                    return;
+                }
                 tbody.innerHTML = '';
 
                 data.forEach(item => {
+                    console.log('Rendering item:', item);
                     const row = document.createElement('tr');
                     row.style.borderBottom = '1px solid #e2e8f0';
                     row.innerHTML = `
