@@ -562,6 +562,7 @@
                                     <th style="padding: 12px; text-align: right; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">Expected Expenses</th>
                                     <th style="padding: 12px; text-align: right; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">Expected Revenue</th>
                                     <th style="padding: 12px; text-align: right; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">Expected Profit</th>
+                                    <th style="padding: 12px; text-align: center; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;">End of Month<br>Visit Status</th>
                                     <th style="padding: 12px; text-align: right; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">Cash Position</th>
                                 </tr>
                             </thead>
@@ -2455,7 +2456,7 @@
                         if (month) {
                             let cashflowItem = cashflowData.find(item => item.month === month);
                             if (!cashflowItem) {
-                                cashflowItem = { month: month, visitAvg: 0, visitProj: 0, expenses: 0, revenue: 0, profit: 0, cashPosition: 0 };
+                                cashflowItem = { month: month, visitAvg: 0, visitProj: 0, expenses: 0, revenue: 0, profit: 0, visitStatus: '', cashPosition: 0 };
                                 cashflowData.push(cashflowItem);
                                 console.log(`Created new cashflow item for month: ${month}`);
                             }
@@ -2476,6 +2477,9 @@
                             } else if (row.Metric_Name.includes('Expected Profit')) {
                                 cashflowItem.profit = parseFloat(row.Value_2025_Jan_June) || 0;
                                 console.log(`Set profit for ${month}: ${cashflowItem.profit}`);
+                            } else if (row.Metric_Name.includes('Visit Status')) {
+                                cashflowItem.visitStatus = row.Value_2025_Jan_June || '';
+                                console.log(`Set visitStatus for ${month}: ${cashflowItem.visitStatus}`);
                             } else if (row.Metric_Name.includes('Cash Position')) {
                                 cashflowItem.cashPosition = parseFloat(row.Value_2025_Jan_June) || 0;
                                 console.log(`Set cashPosition for ${month}: ${cashflowItem.cashPosition}`);
@@ -2656,6 +2660,9 @@
                         </td>
                         <td style="padding: 12px; text-align: right; font-size: 0.9rem; ${item.profit < 0 ? 'color: #e53e3e; font-weight: 700;' : 'color: #38a169; font-weight: 700;'}">
                             ${this.formatCurrency(item.profit)}
+                        </td>
+                        <td style="padding: 12px; text-align: center; font-size: 0.9rem; color: #2d3748; font-weight: 600;">
+                            ${item.visitStatus || ''}
                         </td>
                         <td style="${styleNegativeValue(item.cashPosition, 'padding: 12px; text-align: right; font-size: 0.9rem; color: #2d3748; font-weight: 700;')}">
                             ${this.formatCurrency(item.cashPosition)}
