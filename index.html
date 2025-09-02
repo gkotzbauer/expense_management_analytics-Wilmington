@@ -2534,6 +2534,14 @@
                 return Math.round(value).toString();
             },
 
+            // Format whole number values
+            formatWholeNumber: function(value) {
+                if (value === null || value === undefined || value === '') {
+                    return '';
+                }
+                return Math.round(parseFloat(value)).toString();
+            },
+
             // Format growth percentage
             formatGrowth: function(growth) {
                 const percentage = (growth * 100).toFixed(0);
@@ -2661,8 +2669,8 @@
                         <td style="padding: 12px; text-align: right; font-size: 0.9rem; ${item.profit < 0 ? 'color: #e53e3e; font-weight: 700;' : 'color: #38a169; font-weight: 700;'}">
                             ${this.formatCurrency(item.profit)}
                         </td>
-                        <td style="padding: 12px; text-align: center; font-size: 0.9rem; color: #2d3748; font-weight: 600;">
-                            ${item.visitStatus || ''}
+                        <td style="${styleNegativeValue(item.visitStatus, 'padding: 12px; text-align: right; font-size: 0.9rem; color: #2d3748;')}">
+                            ${this.formatWholeNumber(item.visitStatus)}
                         </td>
                         <td style="${styleNegativeValue(item.cashPosition, 'padding: 12px; text-align: right; font-size: 0.9rem; color: #2d3748; font-weight: 700;')}">
                             ${this.formatCurrency(item.cashPosition)}
