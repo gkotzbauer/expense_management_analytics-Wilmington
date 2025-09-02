@@ -456,7 +456,7 @@
         <!-- Financial Performance Overview Section -->
         <div class="insights-section">
             <h2>📊 Financial Performance Overview</h2>
-            <p style="color: #718096; margin-bottom: 20px;">Performance analysis for Jan-July 2024 vs 2025</p>
+            <p style="color: #718096; margin-bottom: 20px;">Performance analysis for Jan-June 2024 vs 2025</p>
             
             <!-- Key Metrics Summary -->
             <div style="margin-bottom: 30px;">
@@ -527,8 +527,8 @@
                                 <tr>
                                     <th style="padding: 12px; text-align: left; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">Metric</th>
                                     <th style="padding: 12px; text-align: left; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">Responsibility</th>
-                                    <th style="padding: 12px; text-align: right; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">2024 Jan-July</th>
-                                    <th style="padding: 12px; text-align: right; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">2025 Jan-July</th>
+                                    <th style="padding: 12px; text-align: right; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">2024 Jan-June</th>
+                                    <th style="padding: 12px; text-align: right; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">2025 Jan-June</th>
                                     <th style="padding: 12px; text-align: center; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">Growth</th>
                                     <th style="padding: 12px; text-align: center; font-size: 0.8rem; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.05em;">
                                         <div style="display: flex; flex-direction: column; align-items: center;">
@@ -2114,84 +2114,37 @@
                 }
             },
 
-            loadStatusSummaryData: function() {
-                const fileName = 'Status Summary Source File.xlsx';
-                const sources = [
-                    `/${fileName}`,
-                    `/public/${fileName}`,
-                    `/Status%20Summary%20Source%20File.xlsx`,
-                    `/public/Status%20Summary%20Source%20File.xlsx`
-                ];
-                
-                console.log('🔍 Loading Status Summary data from:', fileName);
-
-                const tryFetch = async (url) => {
-                    try {
-                        console.log('🔍 Attempting to fetch:', url);
-                        const response = await fetch(url, {
-                            method: 'GET',
-                            headers: {
-                                'Cache-Control': 'no-cache, no-store, must-revalidate',
-                                'Pragma': 'no-cache',
-                                'Expires': '0'
-                            }
-                        });
-                        console.log('📡 Response status:', response.status, response.ok);
-                        
-                        if (!response.ok) {
-                            console.log('❌ Response not OK');
-                            return false;
-                        }
-                        
-                        const arrayBuffer = await response.arrayBuffer();
-                        console.log('📊 Array buffer size:', arrayBuffer.byteLength);
-                        
-                        const workbook = XLSX.read(arrayBuffer, { type: 'array' });
-                        console.log('📋 Workbook sheets:', workbook.SheetNames);
-                        
-                        const firstSheetName = workbook.SheetNames[0];
-                        const worksheet = workbook.Sheets[firstSheetName];
-                        console.log('📄 Worksheet range:', worksheet['!ref']);
-                        
-                        const jsonData = XLSX.utils.sheet_to_json(worksheet, { 
-                            header: 1,
-                            defval: ''
-                        });
-                        
-                        console.log('📈 Raw data length:', jsonData.length);
-                        console.log('📈 First few rows:', jsonData.slice(0, 5));
-                        
-                        if (jsonData && jsonData.length > 0) {
-                            // Process the data into a more usable format
-                            this.statusSummaryData = this.processStatusSummaryData(jsonData);
-                            console.log('✅ Status Summary data loaded and processed successfully');
-                            console.log('📊 Processed data:', this.statusSummaryData);
-                            
-                            // Create the working charts with the processed data
-                            this.createWorkingCharts();
-                            return true;
-                        } else {
-                            console.log('❌ No JSON data extracted');
-                        }
-                    } catch (e) {
-                        console.error('❌ Error in tryFetch:', e);
-                        return false;
+            loadStatusSummaryData: async function() {
+                try {
+                    console.log('🔍 Loading Status Summary data from JSON file...');
+                    const response = await fetch('/public/Status Summary Source File.json');
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
                     }
-                    return false;
-                };
-
-                (async () => {
-                    for (const src of sources) {
-                        const ok = await tryFetch(src);
-                        if (ok) {
-                            console.log('✅ Successfully loaded from:', src);
-                            return;
-                        }
+                    
+                    console.log('📡 Response status:', response.status);
+                    const jsonData = await response.json();
+                    console.log('📈 Raw data loaded:', jsonData);
+                    
+                    if (jsonData && jsonData.length > 0) {
+                        // Process the data into a more usable format
+                        this.statusSummaryData = this.processStatusSummaryData(jsonData);
+                        console.log('✅ Status Summary data loaded and processed successfully');
+                        console.log('📊 Processed data:', this.statusSummaryData);
+                        
+                        // Create the working charts with the processed data
+                        this.createWorkingCharts();
+                    } else {
+                        console.log('❌ No JSON data extracted');
+                        // Use fallback data if loading fails
+                        this.createWorkingCharts();
                     }
-                    console.error('❌ Failed to load Status Summary data from all sources');
+                } catch (error) {
+                    console.error('❌ Error loading Status Summary data:', error);
                     // Use fallback data if loading fails
                     this.createWorkingCharts();
-                })();
+                }
             },
 
             renderStatusSummary: function() {
@@ -2213,56 +2166,24 @@
             },
 
             // Process the raw data into a structured format
-            processStatusSummaryData: function(rawData) {
-                console.log('🔄 Processing Status Summary data...');
+            processStatusSummaryData: function(jsonData) {
+                console.log('🔄 Processing Status Summary data from JSON...');
                 
-                // Find the header row (usually contains month names)
-                let headerRowIndex = -1;
-                let monthColumns = [];
-                
-                for (let i = 0; i < Math.min(rawData.length, 10); i++) {
-                    const row = rawData[i];
-                    const potentialMonths = row.filter(cell => 
-                        /^(Jan|Feb|Mar|Apr|May|Jun|July|Aug|Sep|Oct|Nov|Dec)$/i.test(String(cell).trim())
-                    );
-                    
-                    if (potentialMonths.length >= 3) {
-                        headerRowIndex = i;
-                        monthColumns = row.map((cell, index) => ({
-                            name: String(cell).trim(),
-                            index: index
-                        })).filter(col => /^(Jan|Feb|Mar|Apr|May|Jun|July)$/i.test(col.name));
-                        console.log('📅 Found month columns:', monthColumns);
-                        break;
-                    }
-                }
-                
-                if (headerRowIndex === -1) {
-                    console.warn('⚠️ Could not find header row with months');
-                    return [];
-                }
-                
-                // Process the data rows
-                const processedData = [];
-                for (let i = headerRowIndex + 1; i < rawData.length; i++) {
-                    const row = rawData[i];
-                    if (!row || row.length === 0) continue;
-                    
-                    const label = String(row[0] || '').trim();
-                    if (!label) continue;
-                    
+                // The JSON data is already in the correct format
+                const processedData = jsonData.map(item => {
                     const dataRow = {
-                        label: label,
+                        label: item.Measures,
                         data: {}
                     };
                     
-                    monthColumns.forEach(col => {
-                        const value = row[col.index];
-                        dataRow.data[col.name] = parseFloat(value) || 0;
+                    // Map the month columns
+                    const monthColumns = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+                    monthColumns.forEach(month => {
+                        dataRow.data[month] = parseFloat(item[month]) || 0;
                     });
                     
-                    processedData.push(dataRow);
-                }
+                    return dataRow;
+                });
                 
                 console.log('✅ Processed data rows:', processedData.length);
                 return processedData;
@@ -2452,52 +2373,16 @@
             // Load financial performance data
             loadFinancialPerformanceData: async function() {
                 try {
-                    console.log('Attempting to load Financial Performance Data.xlsx...');
-                    // Try to load from API endpoint first, then fallback to direct file access
-                    let response;
-                    try {
-                        console.log('Trying API endpoint: /api/financial-performance');
-                        response = await fetch('/api/financial-performance');
-                        if (response.ok) {
-                            console.log('Success with API endpoint');
-                        } else {
-                            throw new Error(`API endpoint failed: ${response.status}`);
-                        }
-                    } catch (apiError) {
-                        console.log('API endpoint failed, trying direct file access...');
-                        // Fallback to direct file access
-                        const possiblePaths = [
-                            '/public/Financial Performance Data.xlsx',
-                            '/Financial Performance Data.xlsx',
-                            '/Financial%20Performance%20Data.xlsx',
-                            'Financial Performance Data.xlsx'
-                        ];
-                        
-                        for (const path of possiblePaths) {
-                            try {
-                                console.log('Trying path:', path);
-                                response = await fetch(path);
-                                if (response.ok) {
-                                    console.log('Success with path:', path);
-                                    break;
-                                }
-                            } catch (e) {
-                                console.log('Failed with path:', path, e);
-                            }
-                        }
-                    }
+                    console.log('Attempting to load Financial Performance Data.json...');
+                    // Load from JSON file directly
+                    const response = await fetch('/public/Financial Performance Data.json');
                     
-                    if (!response || !response.ok) {
-                        throw new Error(`HTTP error! status: ${response?.status || 'No response'}`);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
                     }
                     
                     console.log('Response status:', response.status);
-                    const arrayBuffer = await response.arrayBuffer();
-                    console.log('Array buffer size:', arrayBuffer.byteLength);
-                    const workbook = XLSX.read(arrayBuffer, { type: 'array' });
-                    console.log('Workbook sheets:', workbook.SheetNames);
-                    const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                    this.financialPerformanceData = XLSX.utils.sheet_to_json(worksheet);
+                    this.financialPerformanceData = await response.json();
                     console.log('Financial Performance Data loaded:', this.financialPerformanceData);
                     this.renderFinancialPerformanceSection();
                 } catch (error) {
@@ -2541,8 +2426,8 @@
                     console.log(`Processing row: Category="${row.Category}", Metric_Name="${row.Metric_Name}"`);
                     
                     if (row.Category === 'YOY Expense & Profitability Analysis') {
-                        const val2024 = parseFloat(row.Value_2024_Jan_July) || 0;
-                        const val2025 = parseFloat(row.Value_2025_Jan_July) || 0;
+                        const val2024 = parseFloat(row.Value_2024_Jan_June) || 0;
+                        const val2025 = parseFloat(row.Value_2025_Jan_June) || 0;
                         let growth = parseFloat(row.Growth_Rate_Decimal) || 0;
                         
                         // Special handling for Profit per Visit: if prior year is negative and current year is positive,
