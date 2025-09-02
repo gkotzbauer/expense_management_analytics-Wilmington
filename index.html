@@ -2491,7 +2491,7 @@
                 console.log('=== END FINANCIAL PERFORMANCE DATA DEBUG ===');
 
                 // Sort cashflow data by month order
-                const monthOrder = ['August', 'September', 'October', 'November', 'December'];
+                const monthOrder = ['July', 'August', 'September', 'October', 'November', 'December'];
                 cashflowData.sort((a, b) => monthOrder.indexOf(a.month) - monthOrder.indexOf(b.month));
 
                 console.log('=== CALLING UPDATE KEY METRICS ===');
@@ -2505,7 +2505,7 @@
 
             // Extract month from metric name
             extractMonthFromMetricName: function(metricName) {
-                const months = ['August', 'September', 'October', 'November', 'December'];
+                const months = ['July', 'August', 'September', 'October', 'November', 'December'];
                 for (const month of months) {
                     if (metricName.includes(month)) {
                         return month;
