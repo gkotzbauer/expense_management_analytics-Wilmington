@@ -2427,12 +2427,7 @@
                 this.financialPerformanceData.forEach(row => {
                     console.log(`Processing row: Category="${row.Category}", Metric_Name="${row.Metric_Name}"`);
                     
-                    if (row.Category === 'YOY Expense & Profitability Analysis') {
-                        console.log(`Found YOY row: ${row.Metric_Name}`);
-                        if (row.Metric_Name === 'Visits to Goal') {
-                            console.log('SKIPPING Visits to Goal row');
-                            return;
-                        }
+                    if (row.Category === 'YOY Expense & Profitability Analysis' && row.Metric_Name !== 'Visits to Goal') {
                         const val2024 = parseFloat(row.Value_2024_Jan_June) || 0;
                         const val2025 = parseFloat(row.Value_2025_Jan_June) || 0;
                         let growth = parseFloat(row.Growth_Rate_Decimal) || 0;
@@ -2506,7 +2501,6 @@
                 console.log('=== CALLING UPDATE KEY METRICS ===');
                 console.log('expenseAnalysisData being passed:', expenseAnalysisData);
                 console.log('Looking for Profit per Visit item:', expenseAnalysisData.find(item => item.title === 'Profit per Visit'));
-                console.log('Looking for Visits to Goal item:', expenseAnalysisData.find(item => item.title === 'Visits to Goal'));
                 
                 this.renderExpenseAnalysisTable(expenseAnalysisData);
                 this.renderCashflowTable(cashflowData);
@@ -2525,11 +2519,21 @@
             },
 
             // Format currency values
-            formatCurrency: function(value) {
+            formatCurrency: function(value, metricName = '') {
+                // Metrics that should show two decimal places for values less than $100
+                const twoDecimalMetrics = [
+                    'Marketing ROI (1$ Earned…)',
+                    'Marketing Efficiency (# of visit per dollar)',
+                    'Supply $ per Visit',
+                    'Profit per Visit'
+                ];
+                
                 if (Math.abs(value) >= 1000000) {
                     return `$${Math.round(value / 1000000)}M`;
                 } else if (Math.abs(value) >= 1000) {
                     return `$${Math.round(value / 1000)}K`;
+                } else if (Math.abs(value) < 100 && twoDecimalMetrics.includes(metricName)) {
+                    return `$${value.toFixed(2)}`;
                 } else {
                     return `$${Math.round(value)}`;
                 }
@@ -2610,13 +2614,13 @@
                         <td style="padding: 12px; text-align: right; font-size: 0.9rem; color: #2d3748;">
                             ${item.title === 'Visit Count' ? 
                                 this.formatVisitCount(item.val2024) : 
-                                this.formatCurrency(item.val2024)
+                                this.formatCurrency(item.val2024, item.title)
                             }
                         </td>
                         <td style="padding: 12px; text-align: right; font-size: 0.9rem; color: #2d3748;">
                             ${item.title === 'Visit Count' ? 
                                 this.formatVisitCount(item.val2025) : 
-                                this.formatCurrency(item.val2025)
+                                this.formatCurrency(item.val2025, item.title)
                             }
                         </td>
                         <td style="padding: 12px; text-align: center; font-size: 0.9rem;">
@@ -2625,7 +2629,7 @@
                         <td style="padding: 12px; text-align: center; font-size: 0.9rem; color: #2d3748;">
                             ${item.title === 'Visit Count' ? 
                                 this.formatVisitCount(item.val2025 - item.val2024) : 
-                                this.formatCurrency(item.val2025 - item.val2024)
+                                this.formatCurrency(item.val2025 - item.val2024, item.title)
                             }
                         </td>
                     `;

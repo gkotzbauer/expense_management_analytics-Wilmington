@@ -6,7 +6,7 @@
     "Responsibility": "Team",
     "Value_2024_Jan_June": 729392.0,
     "Value_2025_Jan_June": 779143.0,
-    "Growth_Rate_Decimal": 0.06820886436922807,
+    "Growth_Rate_Decimal": 0.068,
     "Growth_Rate_Percentage": 7.0
   },
   {
@@ -16,7 +16,7 @@
     "Responsibility": "Team",
     "Value_2024_Jan_June": 453952.0,
     "Value_2025_Jan_June": 674419.0,
-    "Growth_Rate_Decimal": 0.48566147962780204,
+    "Growth_Rate_Decimal": 0.486,
     "Growth_Rate_Percentage": 49.0
   },
   {
@@ -26,7 +26,7 @@
     "Responsibility": "RCM/Marketing",
     "Value_2024_Jan_June": 4339.0,
     "Value_2025_Jan_June": 4914.0,
-    "Growth_Rate_Decimal": 0.13251901359760312,
+    "Growth_Rate_Decimal": 0.133,
     "Growth_Rate_Percentage": 13.0
   },
   {
@@ -36,7 +36,7 @@
     "Responsibility": "Owner Controlled",
     "Value_2024_Jan_June": 198222.0,
     "Value_2025_Jan_June": 192148.0,
-    "Growth_Rate_Decimal": -0.030642411034093087,
+    "Growth_Rate_Decimal": -0.031,
     "Growth_Rate_Percentage": -3.0
   },
   {
@@ -46,7 +46,7 @@
     "Responsibility": "Ops - Clinical Administrator Controlled",
     "Value_2024_Jan_June": 401969.0,
     "Value_2025_Jan_June": 439572.0,
-    "Growth_Rate_Decimal": 0.09354701481955076,
+    "Growth_Rate_Decimal": 0.094,
     "Growth_Rate_Percentage": 9.0
   },
   {
@@ -56,34 +56,14 @@
     "Responsibility": "Owner Controlled",
     "Value_2024_Jan_June": 62401.0,
     "Value_2025_Jan_June": 47594.0,
-    "Growth_Rate_Decimal": -0.23728786397653884,
+    "Growth_Rate_Decimal": -0.237,
     "Growth_Rate_Percentage": -24.0
-  },
-  {
-    "Metric_ID": "MARKETING_ROI",
-    "Metric_Name": "Marketing ROI (1$ Earned\u2026)",
-    "Category": "YOY Expense & Profitability Analysis",
-    "Responsibility": "Owner Controlled",
-    "Value_2024_Jan_June": 6.274755212256214,
-    "Value_2025_Jan_June": 13.170252552842795,
-    "Growth_Rate_Decimal": 1.0989269074780634,
-    "Growth_Rate_Percentage": 101.0
-  },
-  {
-    "Metric_ID": "MARKETING_EFFICIENCY",
-    "Metric_Name": "Marketing Efficiency (# of visit per dollar)",
-    "Category": "YOY Expense & Profitability Analysis",
-    "Responsibility": "Owner Controlled",
-    "Value_2024_Jan_June": 0.06953414208105639,
-    "Value_2025_Jan_June": 0.10324830861032903,
-    "Growth_Rate_Decimal": 0.48485773348539807,
-    "Growth_Rate_Percentage": 49.0
   },
   {
     "Metric_ID": "REVENUE_PROPORTIONAL",
     "Metric_Name": "Revenue Proportional",
     "Category": "YOY Expense & Profitability Analysis",
-    "Responsibility": "AFC / Vendor Payments",
+    "Responsibility": "AFC / RCM Payments",
     "Value_2024_Jan_June": 33533.0,
     "Value_2025_Jan_June": 48384.0,
     "Growth_Rate_Decimal": 0.443,
@@ -155,7 +135,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 641.0057616962433,
+    "Value_2025_Jan_June": 641.278,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -165,7 +145,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 101635.15510486288,
+    "Value_2025_Jan_June": 101678.32005575906,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -175,7 +155,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 87974.45356072827,
+    "Value_2025_Jan_June": 88011.81674440374,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -185,7 +165,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -13660.701544134601,
+    "Value_2025_Jan_June": -13666.503311355322,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -195,7 +175,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -99.53558157151183,
+    "Value_2025_Jan_June": -99.57785482318863,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -205,7 +185,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 17492.2984558654,
+    "Value_2025_Jan_June": 17486.49668864468,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -225,7 +205,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 775.7755243143581,
+    "Value_2025_Jan_June": 776.105,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -235,7 +215,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 123003.67711454253,
+    "Value_2025_Jan_June": 123055.91738196989,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -245,7 +225,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 106470.84927402626,
+    "Value_2025_Jan_June": 106516.06796805047,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -255,7 +235,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -16532.82784051627,
+    "Value_2025_Jan_June": -16539.849413919423,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -265,7 +245,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -120.46267381004533,
+    "Value_2025_Jan_June": -120.51383490085547,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -275,7 +255,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 959.4706153491279,
+    "Value_2025_Jan_June": 946.6472747252556,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -295,7 +275,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 915.0753629868633,
+    "Value_2025_Jan_June": 915.464,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -305,7 +285,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 145090.46877160636,
+    "Value_2025_Jan_June": 145152.08940822142,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -315,7 +295,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 125588.97257432588,
+    "Value_2025_Jan_June": 125642.31082946683,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -325,7 +305,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -19501.49619728049,
+    "Value_2025_Jan_June": -19509.778578754587,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -335,7 +315,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -142.0931977204621,
+    "Value_2025_Jan_June": -142.15354540130105,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -345,7 +325,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -18542.02558193136,
+    "Value_2025_Jan_June": -18563.13130402933,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -365,7 +345,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 887.8949066605209,
+    "Value_2025_Jan_June": 888.272,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -375,7 +355,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 140780.85088730123,
+    "Value_2025_Jan_June": 140840.64120797723,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -385,7 +365,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 121858.6070523162,
+    "Value_2025_Jan_June": 121910.36100284901,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -395,7 +375,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -18922.243834985027,
+    "Value_2025_Jan_June": -18930.28020512822,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -405,7 +385,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -137.87260768916124,
+    "Value_2025_Jan_June": -137.9311628646288,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -415,7 +395,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -37464.26941691639,
+    "Value_2025_Jan_June": -37493.41150915755,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -435,7 +415,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 939.9907812860106,
+    "Value_2025_Jan_June": 940.39,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -445,7 +425,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 149040.9518322194,
+    "Value_2025_Jan_June": 149104.25025844527,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -455,7 +435,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 129008.47430283474,
+    "Value_2025_Jan_June": 129063.26483719984,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -465,7 +445,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -20032.47752938466,
+    "Value_2025_Jan_June": -20040.985421245437,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -475,7 +455,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -145.9620719158212,
+    "Value_2025_Jan_June": -146.02406272658405,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -485,7 +465,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -57496.74694630105,
+    "Value_2025_Jan_June": -57534.39693040299,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -505,7 +485,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 853.9193362525928,
+    "Value_2025_Jan_June": 854.282,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -515,7 +495,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 135393.8285319198,
+    "Value_2025_Jan_June": 135451.33095767198,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -525,7 +505,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": 117195.6501498041,
+    "Value_2025_Jan_June": 117245.42371957672,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -535,7 +515,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -18198.1783821157,
+    "Value_2025_Jan_June": -18205.907238095257,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -545,7 +525,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -132.59687015003516,
+    "Value_2025_Jan_June": -132.65318469378843,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   },
@@ -555,7 +535,7 @@
     "Category": "Remaining Year Cashflow Projections",
     "Responsibility": "Forecast",
     "Value_2024_Jan_June": null,
-    "Value_2025_Jan_June": -75694.92532841675,
+    "Value_2025_Jan_June": -75740.30416849825,
     "Growth_Rate_Decimal": null,
     "Growth_Rate_Percentage": null
   }
